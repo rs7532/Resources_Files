@@ -52,7 +52,7 @@
                 android:layout_height="110dp"
                 android:ems="10"
                 android:hint="type here..."
-                android:inputType="text" />
+                android:inputType="textMultiLine" />
 
         </LinearLayout>
     </LinearLayout>
