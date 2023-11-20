@@ -1,9 +1,12 @@
 package com.example.resources_files;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -78,8 +81,33 @@ public class MainActivity extends AppCompatActivity {
         tv.setText(et.getText());
     }
 
-    public void credits_pressed(View view) {
-        Intent si = new Intent(this, credits.class);
-        startActivity(si);
+    /**
+     * <p
+     *      the function get a variable of Menu type
+     * </>
+     * @return the function will create a general menu
+     */
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu){
+        getMenuInflater().inflate(R.menu.main, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    /**
+     * <p
+     *      the function get a variable of MenuItem type
+     * </>
+     * @return the function will as the user choice will move to the credits screen or close the menu
+     */
+    public boolean onOptionsItemSelected(@NonNull MenuItem item){
+        String st = item.getTitle().toString();
+        if(st.equals("move screen")){
+            Intent si = new Intent(this, credits.class);
+            startActivity(si);
+        }
+        else{
+            closeOptionsMenu();
+        }
+        return super.onOptionsItemSelected(item);
     }
 }
